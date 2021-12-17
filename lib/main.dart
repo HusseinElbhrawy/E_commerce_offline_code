@@ -1,3 +1,4 @@
+import 'package:e_commerce_offline_code/const.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
