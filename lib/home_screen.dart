@@ -1,8 +1,9 @@
 import 'package:e_commerce_offline_code/const.dart';
+import 'package:e_commerce_offline_code/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'components.dart';
-import 'models/poduct.dart';
+import 'models/product.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: GridView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: products.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -45,7 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisSpacing: kDefaultPadding,
                   crossAxisSpacing: kDefaultPadding,
                 ),
-                itemBuilder: (context, index) => ItemCard(index: index),
+                itemBuilder: (context, index) => ItemCard(
+                  product: products[index],
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsScreen(
+                        product: products[index],
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
