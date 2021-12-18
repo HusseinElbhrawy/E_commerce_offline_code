@@ -1,54 +1,39 @@
-import 'package:e_commerce_offline_code/const.dart';
 import 'package:e_commerce_offline_code/models/product.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({Key? key, required this.product}) : super(key: key);
-  final Product product;
+import '../../../shared/const.dart';
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: product.color,
-      appBar: detailsScreenAppBar(context),
-      body: DetailsScreenBody(
-        product: product,
+AppBar detailsScreenAppBar(BuildContext context, Product product) {
+  return AppBar(
+    backgroundColor: product.color,
+    elevation: 0.0,
+    leading: IconButton(
+      onPressed: () {
+        Navigator.pop(context);
+      },
+      icon: SvgPicture.asset(
+        'assets/icons/back.svg',
+        color: Colors.white,
       ),
-    );
-  }
-
-  AppBar detailsScreenAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: product.color,
-      elevation: 0.0,
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
+    ),
+    actions: [
+      IconButton(
+        onPressed: () {},
         icon: SvgPicture.asset(
-          'assets/icons/back.svg',
+          'assets/icons/search.svg',
           color: Colors.white,
         ),
       ),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset(
-            'assets/icons/search.svg',
-            color: Colors.white,
-          ),
+      IconButton(
+        onPressed: () {},
+        icon: SvgPicture.asset(
+          'assets/icons/cart.svg',
+          color: Colors.white,
         ),
-        IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset(
-            'assets/icons/cart.svg',
-            color: Colors.white,
-          ),
-        ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
 }
 
 class DetailsScreenBody extends StatelessWidget {
@@ -124,7 +109,7 @@ class DetailsScreenBody extends StatelessWidget {
                                 onPressed: () {},
                                 child: Text(
                                   'Buy Now'.toUpperCase(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 17.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,

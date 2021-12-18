@@ -1,8 +1,8 @@
+import 'package:e_commerce_offline_code/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'const.dart';
-import 'models/product.dart';
+import '../../../shared/const.dart';
 
 PreferredSizeWidget appBarWidget() => AppBar(
       title: const Text('E - Commence'),
@@ -102,21 +102,19 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () => onTap(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: height / 4.3,
-            width: width / 2.44,
-            child: Hero(tag: product.id, child: Image.asset(product.image)),
-            decoration: BoxDecoration(
-              color: product.color,
-              borderRadius: BorderRadius.circular(20.0),
+          Expanded(
+            child: Container(
+              child: Hero(tag: product.id, child: Image.asset(product.image)),
+              decoration: BoxDecoration(
+                color: product.color,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
             ),
           ),
           Text(product.title.toString()),

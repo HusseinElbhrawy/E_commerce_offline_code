@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.e_commerce_offline_code">
    <application
-        android:label="e_commerce_offline_code"
-        android:icon="@mipmap/ic_launcher">
+        android:label="E-commerce"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

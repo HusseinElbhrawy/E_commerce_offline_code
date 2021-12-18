@@ -1,9 +1,9 @@
-import 'package:e_commerce_offline_code/const.dart';
-import 'package:e_commerce_offline_code/screens/details_screen.dart';
+import 'package:e_commerce_offline_code/screens/details_screen/details_screen.dart';
+import 'package:e_commerce_offline_code/shared/const.dart';
 import 'package:flutter/material.dart';
 
-import 'components.dart';
-import 'models/product.dart';
+import '../../models/product.dart';
+import 'components/components.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
